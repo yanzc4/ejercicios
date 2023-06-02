@@ -38,20 +38,17 @@ if (isset($_POST['btn'])) {
     $w = 1;
 
     while ($w <= $canti) {
-        $notas[$w] = array('nota' => $_POST['nota' . $w]);
+        $notas[$w] = $_POST['nota' . $w];
         $w++;
     }
 
 
     for ($i = 1; $i <= $canti; $i++) {
-        echo "Nota " . $i . ": " . $notas[$i]['nota'] . "<br>";
+        echo "Nota " . $i . ": " . $notas[$i] . "<br>";
     }
 
     //promedio de un arreglo
-    $suma = 0;
-    for ($i = 1; $i <= $canti; $i++) {
-        $suma = $suma + $notas[$i]['nota'];
-    }
+    $suma = array_sum($notas);
     $promedio = $suma / $canti;
     echo "Promedio: " . round($promedio, 2). "<br>";
 
